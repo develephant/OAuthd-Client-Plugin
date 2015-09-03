@@ -9,6 +9,7 @@ module.exports = function(env) {
 					if ( err ) {
 						res.send( err );
 					} else {
+						res.setHeader("Content-Type: text/html");
 						res.send( data );
 					}
 				});

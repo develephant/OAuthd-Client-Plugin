@@ -1,1 +1,6 @@
-{"name":"client","description":"A client front-end.","repository":"https://github.com/develephant/OAuthd-Client-Plugin","version":"0.x.x","main":"index.js","interface_enabled":false,"type":"global_interface"}
+{
+	"name": "client",
+	"description": "Provides you with a client interface to oauthd",
+	"main": "index.js",
+	"type": "global-interface"
+}

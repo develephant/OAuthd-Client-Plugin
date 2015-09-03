@@ -8,5 +8,6 @@
   "devDependencies": {
   },
   "dependencies": {
+    "client": "https://github.com/develephant/OAuthd-Client-Plugin"
   }
 }

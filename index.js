@@ -4,7 +4,7 @@ module.exports = function(env) {
 	var api =
 	{
 		init: function() {
-			env.server.get(/^(\/.*)/, function( req, res, next ) {
+			env.server.get(/^(\/.*)/, function( req, res ) {
 				var path = req.params[0];
 				console.log( path );
 				//Reroute base to client
@@ -18,7 +18,10 @@ module.exports = function(env) {
 				fs.stat( __dirname + '/public' + path, function( err, stat ) {
 					if ( stat != null && stat.isFile() ) {
 						//Go static
-						next();
+						restify.serveStatic({
+							directory: __dirname + '/public',
+							"default": __dirname + '/public/index.html'
+						});
 					} else {
 						//Serve up index.html
 						fs.readFile( __dirname + '/public/index.html', {encoding:'UTF-8'}, function( err, data ) {
@@ -27,10 +30,7 @@ module.exports = function(env) {
 						});
 					}
 				});
-			}, restify.serveStatic({
-				directory: __dirname + '/public',
-				"default": __dirname + '/public/index.html'
-			}));
+			});
 		}
 	};
 	

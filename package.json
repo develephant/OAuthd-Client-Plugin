@@ -3,11 +3,12 @@
   "version": "0.x.x",
   "description": "A client front-end",
   "main": "index.js",
-  "author": "C. Byerley <cbyerley@develehant.com",
+  "author": "C. Byerley <cbyerley@develephant.com",
   "license": "ISC",
   "devDependencies": {
+    "restify": "~2.5.1"
   },
   "dependencies": {
-    "client": "https://github.com/develephant/OAuthd-Client-Plugin"
+    "ecstatic": "^0.5.4"
   }
 }

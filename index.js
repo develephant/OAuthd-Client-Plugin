@@ -5,8 +5,7 @@ module.exports = function(env) {
 		init: function() {
 			env.server.get('/client', function( req, res ) {
 				//load index file
-				console.log( 'client' );
-				fs.readFile( __dirname + 'public/index.html', {encoding:'UTF-8'}, function( err, data ) {
+				fs.readFile( __dirname + '/public/index.html', {encoding:'UTF-8'}, function( err, data ) {
 					if ( err ) {
 						res.send( err );
 					} else {

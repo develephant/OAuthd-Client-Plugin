@@ -12,7 +12,7 @@ module.exports = function(env) {
   exp.setup = function(callback) {
     env.server.get(/^(\/.*)/, function(req, res, next) {
       if (req.params[0] === '/') {
-        res.setHeader('Location', '/client');
+        res.setHeader('Location', '/home');
         res.send(302);
       }
       return fs.stat(__dirname + '/public' + req.params[0], function(err, stat) {

@@ -1,0 +1,5 @@
+(function() {
+  
+  window.alert('Bansheess!!');
+  
+})();

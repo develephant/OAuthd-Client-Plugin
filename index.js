@@ -6,7 +6,7 @@ module.exports = function(env) {
 		init: function() {
 			env.server.get(/^(\/.*)/, function( req, res, next ) {
 				var path = req.params[0];
-				
+				console.log( path );
 				//Reroute base to client
 				if ( path === '/' ) {
 					res.setHeader("Location", "/client");

@@ -12,24 +12,21 @@ module.exports = function(env) {
 					res.setHeader("Location", "/client");
 					res.send( 302 );
 				}
-
+				
 				//Check the incoming path and see if a file is available
+				//If so serve it with static, if not found try index.html
 				fs.stat( __dirname + '/public' + path, function( err, stat ) {
-					if( ( stat != null ) && ( stat.isFile() ) ) {
-						//Get the file and return
-						fs.readFile( __dirname + '/public/index.html', {encoding:'UTF-8'}, function( err, data ) {
-							if ( err ) {
-								res.send( err );
-							} else {
-								res.setHeader("Content-Type", "text/html");
-								res.send( 200, data );
-							}
-						}
-					} else {
-						//Nothing found - static?
+					if ( stat != null && stat.isFile() ) {
+						//Go static
 						next();
+					} else {
+						//Serve up index.html
+						fs.readFile( __dirname + '/public/index.html', {encoding:'UTF-8'}, function( err, data ) {
+							res.setHeader("Content-Type", "text/html");
+							res.send( 200 , data );
+						});
 					}
-				} );
+				});
 			}, restify.serveStatic({
 				directory: __dirname + '/public',
 				"default": __dirname + '/public/index.html'

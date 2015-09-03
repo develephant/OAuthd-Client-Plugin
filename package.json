@@ -1,9 +1,9 @@
 {
-  "name": "plugin_test",
+  "name": "client",
   "version": "0.0.0",
-  "description": "",
+  "description": "A client front-end",
   "main": "index.js",
-  "author": "",
+  "author": "C. Byerley <cbyerley@develehant.com",
   "license": "ISC",
   "devDependencies": {
   },
